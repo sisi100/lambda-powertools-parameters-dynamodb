@@ -35,7 +35,7 @@ def put_dummy_data(table):
             batch.put_item(Item=item)
 
 
-def test_idempotency(mock_dynamodb_table):
+def test_dynamodb_parameters(mock_dynamodb_table):
     put_dummy_data(mock_dynamodb_table)
 
     dynamodb_provider = parameters.DynamoDBProvider(table_name=TABLE_NAME, key_attr="hoge_pk", value_attr="hoge_value")
