@@ -1,0 +1,4 @@
+moto
+pytest
+
+aws-lambda-powertools
