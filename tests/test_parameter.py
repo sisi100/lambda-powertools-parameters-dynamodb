@@ -30,9 +30,8 @@ def mock_dynamodb_table(monkeypatch):
 
 def put_dummy_data(table):
     """ダミーデータをテーブルに積む"""
-    with table.batch_writer() as batch:
-        for item in [dict(hoge_pk=i, hoge_value=f"hoge_{i}") for i in range(DUMMY_ITEMS)]:
-            batch.put_item(Item=item)
+    for item in [dict(hoge_pk=i, hoge_value=f"hoge_{i}") for i in range(DUMMY_ITEMS)]:
+        table.put_item(Item=item)
 
 
 def test_dynamodb_parameters(mock_dynamodb_table):
